@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# activate venv
+source "$(dirname "$0")/bin/activate"
+
+# start batch-script
+python "$(dirname "$0")/diarize_audio.py" "$@"
+
+# "$(dirname "$0")/bin/python3" "$(dirname "$0")/diarize_audio.py" "$@"
