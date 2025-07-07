@@ -1,0 +1,7 @@
+ffmpeg-python
+pyannote.audio
+python-dotenv
+torch
+torchaudio
+transformers
+whisperx
