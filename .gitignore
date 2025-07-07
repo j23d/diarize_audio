@@ -1,0 +1,54 @@
+# Python Bytecode / Cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtuelle Umgebung (pyenv/venv)
+bin/
+include/
+lib/
+lib64
+pyvenv.cfg
+share/
+
+# dotenv-Dateien (Token, Umgebungsvariablen)
+.env
+.env.*
+
+# Pip / Packaging
+*.egg-info/
+dist/
+build/
+*.spec
+
+# Logs & temporäre Dateien
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# WhisperX generierte Dateien
+*_prepared.wav
+*_diarized.*
+*.srt
+*.json
+
+# IDE/Editor
+.vscode/
+.idea/
+
+# Test-Ausgaben & Tools
+.tox/
+.nox/
+.pytest_cache/
+.mypy_cache/
+.pyre/
+.pytype/
+
+# Notebook Checkpoints (falls relevant)
+.ipynb_checkpoints/
+
+# Andere lokale Hilfsskripte (falls nicht versioniert)
+test_pyannote_token.py
+diarize_audio.py
