@@ -53,14 +53,20 @@ If you don't have a token, you need to:
 
 ## Usage
 
-### Single File Transcription & Diarization:
+### Activate venv
+
 ```bash
-./whisperx_speaker_diarization_de.py audio_file.m4a --model large-v3 --language de --format srt
+source /path/to/venv/bin/activate
 ```
 
-### Batch Processing:
+### Single File Transcription & Diarization
 ```bash
-./diarize_audio audio1.wav /path/to/audio2.mp3 audio3.ogg --model large-v3 --language de --format srt
+/path/to/whisperx_speaker_diarization_de.py audio_file.m4a --model large-v3 --language de --format srt
+```
+
+### Batch Processing
+```bash
+/path/to/diarize_audio audio1.wav /path/to/audio2.mp3 audio3.ogg --model large-v3 --language de --format srt
 ```
 
 The batch script automatically logs processed files to `whisperx_batch.log` and skips them in future runs.
@@ -72,6 +78,13 @@ The batch script automatically logs processed files to `whisperx_batch.log` and 
 - `.json`: Structured JSON with precise timestamps and speaker labels
 - `.srt`: SubRip subtitle format for video captions
 
+## Tested formats
+
+So far the following inputs gave reasonable good quality output:
+- wav
+- mp3
+- ogg
+- m4a
 
 ## Notes
 
