@@ -1,4 +1,3 @@
-
 # WhisperX Speaker Diarization Batch Tool
 
 This project provides a command-line solution for **automatic speech transcription** and **speaker diarization** using [WhisperX](https://github.com/m-bain/whisperX) and [pyannote.audio](https://github.com/pyannote/pyannote-audio).
@@ -92,6 +91,41 @@ So far the following inputs gave reasonable good quality output:
 - WhisperX does not support `turbo` models; recommended models: `large-v3`, `medium`, `small`.
 - Diarization requires acceptance of the terms for `pyannote` models on Hugging Face.
 
+
+## Transcript to PDF
+
+A companion script converts a diarized transcript (TXT format) into a clean LaTeX file and a printable PDF.
+
+### Functionality
+
+The script performs the following steps:
+
+> - Parses transcript lines of the format:
+>   `[start - end] SPEAKER_XX: Text`
+> - Maps speaker IDs (e.g. `SPEAKER_00`) to real names (e.g. `Coach`, `Client`)
+> - Inserts optional intro/outro text from files
+> - Outputs a minimal LaTeX document with one speaker per line
+> - Compiles the PDF via `pdflatex` (if installed)
+
+### Requirements
+
+- Python 3.7+
+- LaTeX with `pdflatex` in PATH (e.g. via `texlive`)
+- UTF-8 encoded input and text files
+
+### Usage
+
+```bash
+python3 transkript2pdf.py \
+  --input transcript.txt \
+  --mapping SPEAKER_00=Coach SPEAKER_01=Client \
+  --intro intro.txt \
+  --outro outro.txt \
+  --output session.pdf
+```
+
+> Speaker mapping and intro/outro are optional.
+> The script also creates a `.tex` file next to the PDF.
 
 ## License
 
