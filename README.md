@@ -52,6 +52,16 @@ If you don't have a token, you need to:
 
 ## Usage
 
+### Environment Variable
+
+Before running the scripts, set the required environment variable:
+
+```bash
+export TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD=1
+```
+
+This is required for compatibility with the current PyTorch and model loading configuration.
+
 ### Activate venv
 
 ```bash

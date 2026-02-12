@@ -1,7 +1,10 @@
-ffmpeg-python
-pyannote.audio
-python-dotenv
-torch
-torchaudio
-transformers
-whisperx
+ffmpeg-python==0.2.0
+pyannote.audio==3.3.2
+python-dotenv==1.0.1
+torch==2.8.0
+torchaudio==2.8.0
+transformers==4.48.0
+whisperx==3.7.0
+numpy==2.0.2
+speechbrain==1.0.3
+
