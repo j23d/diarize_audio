@@ -10,6 +10,17 @@ import subprocess
 from dotenv import load_dotenv
 from pyannote.audio import Pipeline
 
+# monkey patch
+#import omegaconf
+#torch.serialization.add_safe_globals([omegaconf.listconfig.ListConfig])
+#torch.serialization.add_safe_globals([
+#    omegaconf.listconfig.ListConfig,
+#    omegaconf.dictconfig.DictConfig,
+##])
+
+_original_load = torch.load
+torch.load = lambda *args, **kwargs: _original_load(*args, **{**kwargs, 'weights_only': False})
+
 load_dotenv()
 hf_token = os.getenv("HF_TOKEN")
 
