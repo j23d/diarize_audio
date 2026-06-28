@@ -50,5 +50,3 @@ build/
 .ipynb_checkpoints/
 
 # Andere lokale Hilfsskripte (falls nicht versioniert)
-test_pyannote_token.py
-diarize_audio.py

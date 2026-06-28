@@ -63,8 +63,13 @@ Required Hugging Face model access:
 
 2. **diarize_audio** (bash wrapper)
    - Activates venv and calls `diarize_audio.py` with arguments
-   - **Note**: diarize_audio.py is not in git (listed in .gitignore) - it's a local development file for batch processing
    - Intended for batch processing multiple audio files
+
+3. **diarize_audio.py** (batch processor)
+   - Accepts multiple audio file paths + `--model`, `--language`, `--format` flags
+   - Iterates files sequentially, calls `whisperx_speaker_diarization_de.py` via subprocess for each
+   - Tracks failures; prints summary; exits with code 1 if any file failed
+   - Same defaults as main script: `large-v3`, `de`, `txt`
 
 ### Output Formats
 
@@ -99,11 +104,9 @@ Generated files are added to .gitignore:
 - `*_diarized.*`: Output transcript files
 - `.srt`, `.json`: Additional output formats
 
-### Local Development Files
-Files in .gitignore that may exist locally:
-- `diarize_audio.py`: Batch processing script (local development)
-- `test_pyannote_token.py`: Token testing utility (local development)
-- `transkript2pdf.py`: Convert TXT transcripts to PDF (mentioned in README but not in repo)
+### Additional Scripts
+- `test_pyannote_token.py`: Token testing utility for verifying HF token + pyannote model access
+- `transkript2pdf.py`: Convert `.txt` transcripts to PDF
 
 ## Common Commands
 
@@ -116,7 +119,6 @@ python whisperx_speaker_diarization_de.py audio_file.m4a --model large-v3 --lang
 ```bash
 ./diarize_audio audio1.wav /path/to/audio2.mp3 audio3.ogg --model large-v3 --language de --format srt
 ```
-(Note: requires local `diarize_audio.py` implementation)
 
 ### Check WhisperX Models
 Recommended models: `large-v3` (best quality), `medium` (balanced), `small` (faster)
